@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+   <link rel="stylesheet" type="text/css" href={{url_for('static', filename = "styles/styles.css")}}>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Kim's portfolio</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/projects">Projects</a>
+        <a href="/techniques">Techniques</a>
+      </div>
+    </div>
+    {% block body%}
+    {% endblock %}
+
+    <div class="footer">
+      <dl>
+        <dt>Kontakt info</dt>
+        <dd><a href="mailto:wilsj389@student.liu.se">Mail: wilsj389@student.liu.se</a></dd>
+        <dd><a href="mailto:andmo435@student.liu.se">Mail: andmo435@student.liu.se</a></dd>
+      </dl>
+
+    </div>
+
+  </body>
+</html>

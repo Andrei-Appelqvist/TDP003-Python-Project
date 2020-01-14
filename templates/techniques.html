@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+{% block title %}
+Techniques
+{% endblock %}
+{% block body %}
+
+
+
+<div class="cont">
+  <div class="Top_title">
+    <h1>Techniques</h1>
+  </div>
+  <div class="Pickers">
+    <form class="form" action="/techniques" method="GET">
+      {% for x in pick_techs %}
+      <div class="btn">
+      <input id="{{x}}" type="checkbox" name="tech_values" class="vis-hidden new-post" value="{{x.lower()}}"/>
+      <label for="{{x}}" class="normal_btn">{{x}}</label>
+      </div>
+      {% endfor %}
+      <button type="submit" id="normal_btn" value="Submit">Submit</button>
+    </div>
+    </form>
+  </div>
+
+  <div class="lst">
+    <h2>Projects that match the chosen techniques:</h2>
+    <div class="proj">
+      {% for x in tech_list %}
+        <a href="/project/{{x.project_id}}"><img src="{{url_for('static',filename= 'images/'+ x.project_id + '.jpg')}}"><p>{{x.project_id}}</p></a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+    </div>
+{% endblock %}

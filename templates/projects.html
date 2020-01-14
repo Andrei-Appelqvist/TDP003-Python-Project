@@ -1,0 +1,66 @@
+{% extends "template.html" %}
+{% block title %}
+Project Sida
+{% endblock %}
+{% block body %}
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<form class="" action="/projects" method="GET">
+<div class="topsearch">
+  <input id="search_input" type="text" name="inp_for_search">
+  <button type="submit" value="Submit" id="normal_btn">Sök</button>
+</div>
+<div class="topsearch">
+    <button id="normal_btn">Rensa</button>
+<div class="btn-group">
+              <button type="button" id="normal_btn"  class="checkbox_drop" data-toggle="dropdown"><span>Sök kategorier</span></button>
+              <ul class="dropdown-menu">
+                 <li id="checkbox">
+                         <input name="categories" value="start_date" type="checkbox"/> Datum</li>
+                  <li id="checkbox">
+                         <input name="categories" value="group_size" type="checkbox"/> Gruppstorlek</li>
+                  <li id="checkbox">
+                         <input name="categories" value="project_name" type="checkbox"/> Projektnamn</li>
+                  <li id="checkbox">
+                         <input name="categories" value="project_id" type="checkbox"/> Projekt ID</li>
+                  <li id="checkbox">
+                         <input name="categories" value="course_id" type="checkbox"/> Kurs namn</li>
+            </ul>
+           </div>
+
+         <div class="btn-group">
+            <button type="button" id="normal_btn" class="checkbox_drop" data-toggle="dropdown"><span>Tekniker</span></button>
+            <ul class="dropdown-menu">
+              {% for x in pick_techs %}
+               <li id="checkbox">
+                       <input name="techniques" type="checkbox"/ value="{{x}}"> {{x}}
+               </li>
+              {% endfor %}
+            </ul>
+         </div>
+      <select id="normal_btn" name="sorting">
+        <option name="sorting" value="start_date">Datum</option>
+        <option name="sorting" value="group_size">Gruppstorlek</option>
+        <option name="sorting" value="project_name">Projektnamn</option>
+        <option name="sorting" value="project_id">Projekt ID</option>
+        <option name="sorting" value="course_id">Kurs namn</option>
+      </select>
+
+      <select id="normal_btn" name="sort" value="asc">
+        <option name="sort" value="asc">Ascending</option>
+        <option name="sort" value="desc">Descending</option>
+      </select>
+    </div>
+    </form>
+      {% for x in proj %}
+      <a href="/project/{{x.project_id}}">
+      <div class="content">
+        <div id="projects_info">
+          <h3>{{x.project_name}}</h3>
+          <p>{{x.short_description}}</p>
+        </div>
+        <img id="project_image" src="{{url_for('static',filename= 'images/'+ x.project_id + '.jpg')}}">
+      </div>
+    </a>
+      {% endfor %}
+{% endblock %}
