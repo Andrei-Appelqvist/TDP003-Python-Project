@@ -3,6 +3,7 @@ body{
   background-color: white;
   margin: 0;
   font-family: 'Dosis', sans-serif;
+  height: 100%;
 }
  #normal_btn{
   padding: 2px 25px;
@@ -83,7 +84,7 @@ body{
 }
 
 .footer{
-    position: fixed;
+    position: static;
     bottom: 0;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -339,4 +340,20 @@ input:checked + label {
 .btn-group{
   background-color: Black;
   color: white;
+}
+
+.content img{
+  width: 200px;
+}
+
+.footer{
+  margin-top:100px;
+}
+
+.space{
+  height: 50px;
+}
+
+.proj img{
+  width: 250px;
 }
